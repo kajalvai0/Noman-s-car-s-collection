@@ -8,4 +8,654 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @keyframes spinWheel {
-…</html>
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes driveIn {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+        @keyframes dustCloud {
+            0% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 0.8; }
+            100% { opacity: 0; transform: scale(1.5); }
+        }
+        .wheel-spin {
+            animation: spinWheel 2s linear infinite;
+        }
+        .car-entry {
+            animation: driveIn 1.5s ease-out;
+        }
+        .dust-cloud {
+            position: absolute;
+            background: rgba(255, 255, 0, 0.3);
+            border-radius: 50%;
+            animation: dustCloud 1s ease-out infinite;
+        }
+        .car-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+        }
+        .car-card {
+            transition: all 0.3s ease;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- হেডার/নেভিগেশন -->
+    <header class="bg-black text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-car text-yellow-400 text-3xl"></i>
+                <h1 class="text-2xl font-bold">নোমানের <span class="text-yellow-400">গাড়ি</span> কালেকশন</h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="hover:text-yellow-400 transition">হোম</a>
+                <a href="#showroom" class="hover:text-yellow-400 transition">শোরুম</a>
+                <a href="#about" class="hover:text-yellow-400 transition">আমাদের সম্পর্কে</a>
+                <a href="#contact" class="hover:text-yellow-400 transition">যোগাযোগ</a>
+            </nav>
+            <button class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- হিরো সেকশন - অ্যানিমেটেড ল্যাম্বরগিনি -->
+    <section class="hero-section relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute bottom-20 left-0 w-full flex justify-center">
+            <div class="car-entry relative" id="animated-car">
+                <img src="https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/facelift_2019/models_gw/images-s/2023/03_29/gate_family_s_03_m.jpg" 
+                     alt="" class="w-96 h-auto">
+                <div class="absolute bottom-0 left-1/4 w-16 h-16">
+                    <img src="https://www.freepnglogos.com/uploads/wheel-png/wheel-png-transparent-images-png-only-22.png" 
+                         alt="" class="wheel-spin w-full h-full">
+                </div>
+                <div class="absolute bottom-0 right-1/4 w-16 h-16">
+                    <img src="https://www.freepnglogos.com/uploads/wheel-png/wheel-png-transparent-images-png-only-22.png" 
+                         alt="" class="wheel-spin w-full h-full">
+                </div>
+                <div class="dust-cloud" style="bottom: -20px; left: 30%; width: 100px; height: 50px;"></div>
+                <div class="dust-cloud" style="bottom: -20px; left: 60%; width: 80px; height: 40px; animation-delay: 0.2s;"></div>
+            </div>
+        </div>
+        <div class="text-center text-white z-10 px-4">
+            <h2 class="text-5xl md:text-7xl font-bold mb-6">বিলাসিতা <span class="text-yellow-400">নতুনভাবে সংজ্ঞায়িত</span></h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">নোমানের এক্সক্লুসিভ কালেকশনে অভিজ্ঞতা নিন অটোমোটিভ এক্সিলেন্সের চূড়ান্ত প্রকাশ</p>
+            <a href="#showroom" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block">
+                কালেকশন এক্সপ্লোর করুন
+            </a>
+        </div>
+    </section>
+
+    <!-- ফিচার্ড গাড়ির শোরুম -->
+    <section id="showroom" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">আমাদের <span class="text-yellow-400">এক্সক্লুসিভ</span> কালেকশন</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- গাড়ি ১ - ল্যাম্বরগিনি অ্যাভেন্টাডর -->
+                <div class="car-card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1504215680853-026ed2a45def?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" 
+                             alt="ল্যাম্বরগিনি অ্যাভেন্টাডর" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-yellow-400 text-black px-3 py-1 rounded-full font-bold">
+                            নতুন আগমন
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-2xl font-bold">ল্যাম্বরগিনি অ্যাভেন্টাডর</h3>
+                            <span class="text-xl font-bold text-yellow-600">$৫০০,০০০</span>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-4">
+                            <i class="fas fa-tachometer-alt mr-2"></i>
+                            <span>৭,৫০০ মাইল</span>
+                            <i class="fas fa-gas-pump ml-4 mr-2"></i>
+                            <span>পেট্রোল</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-car mr-2 text-yellow-500"></i>
+                                <span>২ দরজা</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-cogs mr-2 text-yellow-500"></i>
+                                <span>অটোমেটিক</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-bolt mr-2 text-yellow-500"></i>
+                                <span>৭৩০ এইচপি</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-tachometer-alt mr-2 text-yellow-500"></i>
+                                <span>২১৭ মাইল/ঘণ্টা</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition flex items-center justify-center">
+                            <i class="fas fa-shopping-cart mr-2"></i> এখনই রিজার্ভ করুন
+                        </button>
+                    </div>
+                </div>
+
+                <!-- গাড়ি ২ - ফেরারি ৪৮৮ জিটিবি -->
+                <div class="car-card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1583121274602-3e2820c6988f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                             alt="ফেরারি ৪৮৮ জিটিবি" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-2xl font-bold">ফেরারি ৪৮৮ জিটিবি</h3>
+                            <span class="text-xl font-bold text-yellow-600">$৩৫০,০০০</span>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-4">
+                            <i class="fas fa-tachometer-alt mr-2"></i>
+                            <span>১২,৩০০ মাইল</span>
+                            <i class="fas fa-gas-pump ml-4 mr-2"></i>
+                            <span>পেট্রোল</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-car mr-2 text-yellow-500"></i>
+                                <span>২ দরজা</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-cogs mr-2 text-yellow-500"></i>
+                                <span>অটোমেটিক</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-bolt mr-2 text-yellow-500"></i>
+                                <span>৬৬০ এইচপি</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-tachometer-alt mr-2 text-yellow-500"></i>
+                                <span>২০৫ মাইল/ঘণ্টা</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition flex items-center justify-center">
+                            <i class="fas fa-shopping-cart mr-2"></i> এখনই রিজার্ভ করুন
+                        </button>
+                    </div>
+                </div>
+
+                <!-- গাড়ি ৩ - পোর্শে ৯১১ টার্বো এস -->
+                <div class="car-card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                             alt="পোর্শে ৯১১ টার্বো এস" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full font-bold">
+                            হট ডিল
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-2xl font-bold">পোর্শে ৯১১ টার্বো এস</h3>
+                            <span class="text-xl font-bold text-yellow-600">$২২০,০০০</span>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-4">
+                            <i class="fas fa-tachometer-alt mr-2"></i>
+                            <span>৮,৯০০ মাইল</span>
+                            <i class="fas fa-gas-pump ml-4 mr-2"></i>
+                            <span>পেট্রোল</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-car mr-2 text-yellow-500"></i>
+                                <span>২ দরজা</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-cogs mr-2 text-yellow-500"></i>
+                                <span>অটোমেটিক</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-bolt mr-2 text-yellow-500"></i>
+                                <span>৬৪০ এইচপি</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-tachometer-alt mr-2 text-yellow-500"></i>
+                                <span>২০৫ মাইল/ঘণ্টা</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition flex items-center justify-center">
+                            <i class="fas fa-shopping-cart mr-2"></i> এখনই রিজার্ভ করুন
+                        </button>
+                    </div>
+                </div>
+
+                <!-- গাড়ি ৪ - ম্যাকলারেন ৭২০এস -->
+                <div class="car-card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                             alt="ম্যাকলারেন ৭২০এস" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-2xl font-bold">ম্যাকলারেন ৭২০এস</h3>
+                            <span class="text-xl font-bold text-yellow-600">$৩১৫,০00</span>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-4">
+                            <i class="fas fa-tachometer-alt mr-2"></i>
+                            <span>৬,২০০ মাইল</span>
+                            <i class="fas fa-gas-pump ml-4 mr-2"></i>
+                            <span>পেট্রোল</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-car mr-2 text-yellow-500"></i>
+                                <span>২ দরজা</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-cogs mr-2 text-yellow-500"></i>
+                                <span>অটোমেটিক</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-bolt mr-2 text-yellow-500"></i>
+                                <span>৭১০ এইচপি</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-tachometer-alt mr-2 text-yellow-500"></i>
+                                <span>২১২ মাইল/ঘণ্টা</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition flex items-center justify-center">
+                            <i class="fas fa-shopping-cart mr-2"></i> এখনই রিজার্ভ করুন
+                        </button>
+                    </div>
+                </div>
+
+                <!-- গাড়ি ৫ - বুগাটি চিরন -->
+                <div class="car-card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2089&q=80" 
+                             alt="বুগাটি চিরন" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full font-bold">
+                            লিমিটেড এডিশন
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-2xl font-bold">বুগাটি চিরন</h3>
+                            <span class="text-xl font-bold text-yellow-600">$৩,০০০,০০০</span>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-4">
+                            <i class="fas fa-tachometer-alt mr-2"></i>
+                            <span>১,২০০ মাইল</span>
+                            <i class="fas fa-gas-pump ml-4 mr-2"></i>
+                            <span>পেট্রোল</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-car mr-2 text-yellow-500"></i>
+                                <span>২ দরজা</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-cogs mr-2 text-yellow-500"></i>
+                                <span>অটোমেটিক</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-bolt mr-2 text-yellow-500"></i>
+                                <span>১,৫০০ এইচপি</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-tachometer-alt mr-2 text-yellow-500"></i>
+                                <span>২৬১ মাইল/ঘণ্টা</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition flex items-center justify-center">
+                            <i class="fas fa-shopping-cart mr-2"></i> এখনই রিজার্ভ করুন
+                        </button>
+                    </div>
+                </div>
+
+                <!-- গাড়ি ৬ - রোলস রয়েস ফ্যান্টম -->
+                <div class="car-card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1622445275463-afa82ab528ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" 
+                             alt="রোলস রয়েস ফ্যান্টম" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-2xl font-bold">রোলস রয়েস ফ্যান্টম</h3>
+                            <span class="text-xl font-bold text-yellow-600">$৪৫০,০০০</span>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-4">
+                            <i class="fas fa-tachometer-alt mr-2"></i>
+                            <span>৯,৮০০ মাইল</span>
+                            <i class="fas fa-gas-pump ml-4 mr-2"></i>
+                            <span>পেট্রোল</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-car mr-2 text-yellow-500"></i>
+                                <span>৪ দরজা</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-cogs mr-2 text-yellow-500"></i>
+                                <span>অটোমেটিক</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-bolt mr-2 text-yellow-500"></i>
+                                <span>৫৬৩ এইচপি</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-tachometer-alt mr-2 text-yellow-500"></i>
+                                <span>১৫৫ মাইল/ঘণ্টা</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition flex items-center justify-center">
+                            <i class="fas fa-shopping-cart mr-2"></i> এখনই রিজার্ভ করুন
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                <button class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block">
+                    সমস্ত কালেকশন দেখুন
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- আমাদের সম্পর্কে সেকশন -->
+    <section id="about" class="py-20 bg-black text-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h2 class="text-4xl font-bold mb-6">নোমানের কালেকশন <span class="text-yellow-400">সম্পর্কে</span></h2>
+                    <p class="text-lg mb-6">
+                        ২০১০ সালে প্রতিষ্ঠিত, নোমানের গাড়ি কালেকশন বিশ্বব্যাপী বিলাসবহুল ও এক্সক্লুসিভ অটোমোবাইলের জন্য প্রিমিয়ার গন্তব্য হিসেবে নিজেকে প্রতিষ্ঠিত করেছে।
+                    </p>
+                    <p class="text-lg mb-8">
+                        বিলাসবহুল অটোমোটিভ মার্কেটে এক দশকেরও বেশি অভিজ্ঞতা নিয়ে, আমরা কেবলমাত্র সেরা গাড়ি অফার করতে গর্বিত,
+                        প্রতিটি গাড়ি সযত্নে পরিদর্শন এবং সর্বোচ্চ মান বজায় রাখা হয়। আমাদের শ্রেষ্ঠত্বের প্রতি আবেগ শুধুমাত্র
+                        গ্রাহক সন্তুষ্টির প্রতি আমাদের প্রতিশ্রুতির সাথে মিলিত হয়।
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex items-center">
+                            <div class="bg-yellow-400 text-black rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                                <i class="fas fa-trophy text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">পুরস্কার বিজয়ী</h4>
+                                <p class="text-gray-400">২০২৩ সালের সেরা লাক্সারি ডিলার</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-yellow-400 text-black rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                                <i class="fas fa-shield-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">সার্টিফাইড</h4>
+                                <p class="text-gray-400">১০০% যাচাইকৃত গাড়ি</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                             alt="শোরুম" class="rounded-lg shadow-2xl w-full">
+                        <div class="absolute -bottom-6 -right-6 bg-yellow-400 text-black p-6 rounded-lg shadow-lg w-2/3">
+                            <h3 class="text-2xl font-bold mb-2">আমাদের শোরুম দেখুন</h3>
+                            <p class="mb-2">
+                                <i class="fas fa-map-marker-alt mr-2"></i> ১২৩ লাক্সারি অ্যাভিনিউ, বেভারলি হিলস, সিএ
+                            </p>
+                            <p>
+                                <i class="fas fa-clock mr-2"></i> খোলা ৭ দিন: সকাল ৯টা - সন্ধ্যা ৭টা
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ক্লায়েন্ট টেস্টিমোনিয়াল -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">আমাদের <span class="text-yellow-400">ক্লায়েন্টরা</span> কী বলে</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        "নোমানে সার্ভিস অতুলনীয়। তারা আমার জন্য সঠিক স্পেসিফিকেশনের ফেরারি খুঁজে পেয়েছে এবং সমস্ত কাগজপত্র নির্বিঘ্নে হ্যান্ডেল করেছে। সত্যিই একটি প্রিমিয়াম অভিজ্ঞতা।"
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="ক্লায়েন্ট" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">মাইকেল জনসন</h4>
+                            <p class="text-gray-600">ফেরারি মালিক</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        "আমি নোমান থেকে তিনটি গাড়ি কিনেছি। তাদের বিস্তারিত মনোযোগ এবং বিক্রয়-পরবর্তী সেবা আমাকে ফিরিয়ে আনে। ব্যবসায় সেরা।"
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="ক্লায়েন্ট" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">সারা উইলিয়ামস</h4>
+                            <p class="text-gray-600">ল্যাম্বরগিনি কালেক্টর</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        "আমি যে বুগাটি চিরন কিনেছি তা সমস্ত প্রত্যাশা ছাড়িয়ে গেছে। নোমানের দল পুরো প্রক্রিয়াটি সহজ করে দিয়েছে। গুরুতর কালেক্টরদের জন্য অত্যন্ত সুপারিশ করা।"
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="ক্লায়েন্ট" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">রবার্ট চেন</h4>
+                            <p class="text-gray-600">বুগাটি মালিক</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- যোগাযোগ সেকশন -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h2 class="text-4xl font-bold mb-6">আমাদের সাথে <span class="text-yellow-400">যোগাযোগ করুন</span></h2>
+                    <p class="text-lg mb-8">
+                        আমাদের গাড়িগুলির মধ্যে একটি সম্পর্কে আগ্রহী বা আমাদের কালেকশন সম্পর্কে প্রশ্ন আছে?
+                        আমাদের বিলাসবহুল অটোমোটিভ বিশেষজ্ঞদের দল আপনাকে সাহায্য করতে প্রস্তুত।
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-yellow-400 text-black rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">শোরুমের ঠিকানা</h4>
+                                <p class="text-gray-600">১২৩ লাক্সারি অ্যাভিনিউ, বেভারলি হিলস, সিএ ৯০২১০</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-yellow-400 text-black rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                                <i class="fas fa-phone-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">ফোন নম্বর</h4>
+                                <p class="text-gray-600">+১ (৩১০) ৫৫৫-লাক্সারি</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-yellow-400 text-black rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">ইমেইল ঠিকানা</h4>
+                                <p class="text-gray-600">info@nomanscars.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold text-lg mb-4">আমাদের অনুসরণ করুন</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-100 p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6">আমাদের একটি বার্তা পাঠান</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2" for="name">পুরো নাম</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2" for="email">ইমেইল ঠিকানা</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2" for="phone">ফোন নম্বর</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2" for="message">আপনার বার্তা</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-black text-white py-3 rounded-lg hover:bg-yellow-400 hover:text-black transition font-bold">
+                                বার্তা পাঠান
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ফুটার -->
+    <footer class="bg-black text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-car text-yellow-400 text-2xl"></i>
+                        <h2 class="text-2xl font-bold">নোমানের <span class="text-yellow-400">গাড়ি</span> কালেকশন</h2>
+                    </div>
+                    <p class="mt-2 text-gray-400">বিশ্বের সেরা বিলাসবহুল অটোমোবাইল</p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-6 mb-4">
+                        <a href="#" class="hover:text-yellow-400 transition">হোম</a>
+                        <a href="#showroom" class="hover:text-yellow-400 transition">শোরুম</a>
+                        <a href="#about" class="hover:text-yellow-400 transition">আমাদের সম্পর্কে</a>
+                        <a href="#contact" class="hover:text-yellow-400 transition">যোগাযোগ</a>
+                    </div>
+                    <p class="text-gray-400 text-sm">© ২০২৩ নোমানের গাড়ি কালেকশন। সর্বস্বত্ব সংরক্ষিত।</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ইন্টারেক্টিভ এলিমেন্টের জন্য সাধারণ জাভাস্ক্রিপ্ট
+        document.addEventListener('DOMContentLoaded', function() {
+            // পেজ লোডে গাড়ি অ্যানিমেট করুন
+            const car = document.getElementById('animated-car');
+            car.style.animation = 'driveIn 1.5s ease-out';
+            
+            // ডায়নামিকভাবে ধুলো মেঘ তৈরি করুন
+            function createDustClouds() {
+                const carContainer = document.querySelector('.car-entry');
+                for (let i = 0; i < 4; i++) {
+                    const cloud = document.createElement('div');
+                    cloud.className = 'dust-cloud';
+                    cloud.style.bottom = '-20px';
+                    cloud.style.left = `${20 + (i * 20)}%`;
+                    cloud.style.width = `${60 + (Math.random() * 40)}px`;
+                    cloud.style.height = `${30 + (Math.random() * 30)}px`;
+                    cloud.style.animationDelay = `${i * 0.3}s`;
+                    carContainer.appendChild(cloud);
+                }
+            }
+            
+            createDustClouds();
+            
+            // নেভিগেশন লিঙ্কের জন্য স্মুথ স্ক্রোলিং
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // গাড়ি কার্ড হোভার ইফেক্ট
+            const carCards = document.querySelectorAll('.car-card');
+            carCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    const img = card.querySelector('img');
+                    img.style.transform = 'scale(1.1)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    const img = card.querySelector('img');
+                    img.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made by <img src="" alt="" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="" style="color: #fff;text-decoration: underline;" target="_blank" >RSTSBD</a> -  <a href="" style="color: #fff;text-decoration: underline;" target="_blank" >x</a></p></body>
+</html>
